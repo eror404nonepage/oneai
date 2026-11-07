@@ -470,16 +470,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
         }
 #checkin-rewards-box p{ color:#ffffff !important; margin-bottom:8px; }
 #profile-view .day-box{ border:1px solid #000000 !important; }
-#global-currency{
-            background: transparent !important;
-            background-color: transparent !important;
-            background-image: none !important;
-            color: #000000 !important;
-            border: 1.5px solid #c0c0c0 !important;
-            border-radius: 10px !important;
-            padding: 12px !important;
-        }
-#global-currency option{ background:#ffffff !important; color:#000000 !important; }
+
 #auth-view .input-wrapper{
             border:1.5px solid rgba(201,162,39,0.28) !important;
             background: transparent !important;
@@ -992,12 +983,6 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
   outline:none !important;
 }
 #settings-view .pin-grid{ justify-content:flex-start; gap:9px; }
-.currency-row{ display:flex; gap:8px; justify-content:center; }
-.currency-btn{ flex:1; padding:16px 0; font-size:30px; font-weight:900; color:#ffffff;
-  background:rgba(255,255,255,.04); border:1.5px solid rgba(198,205,214,.4); border-radius:14px;
-  cursor:pointer; line-height:1; }
-.currency-btn.active{ background:linear-gradient(135deg,#FBE7A6 0%,#E5BC53 40%,#BE8A11 100%);
-  color:#221602; border-color:transparent; box-shadow:0 4px 14px rgba(201,162,39,.35); }
 
 #support-chat-box{ background:rgba(255,255,255,.04);
   border:1px solid rgba(198,205,214,.35); border-radius:16px; padding:14px;
@@ -1216,8 +1201,49 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
 #app-container:has(#packages-view.active) #nav-packages,
 #app-container:has(#dashboard-view.active) #nav-dashboard,
 #app-container:has(#affiliate-view.active) #nav-affiliate,
-#app-container:has(#settings-view.active) #nav-settings{ color:#C9A227; }
+#app-container:has(#settings-view.active,#logins-view.active,#acchistory-view.active) #nav-settings{ color:#C9A227; }
+.st-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+.st-btn{ display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:54px; padding:0 12px;
+  border-radius:12px; border:1.5px solid rgba(198,205,214,.55); background:rgba(255,255,255,.04); color:#ffffff;
+  font-family:inherit; font-size:13px; font-weight:800; cursor:pointer; text-align:left; }
+.st-btn:active{ opacity:.75; }
+.st-btn i{ flex:0 0 auto; font-size:18px; color:#C9A227; }
+.st-left{ flex:0 0 auto; font-size:20px; line-height:1; }
+.st-right{ flex:1; min-width:0; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.st-stack{ display:flex; flex-direction:column; gap:12px; }
+.st-title{ margin:4px 0 16px; font-size:18px; font-weight:900; text-align:center; }
+.st-empty{ text-align:center; font-size:12px; color:#8B939D; }
+.pick-row{ display:flex; align-items:center; gap:12px; width:100%; padding:12px 14px; margin-bottom:8px; border-radius:12px;
+  border:1px solid rgba(198,205,214,.4); background:rgba(255,255,255,.04); color:#ffffff;
+  font-family:inherit; font-size:14px; font-weight:800; cursor:pointer; text-align:left; }
+.pick-row.active{ border-color:#C9A227; background:rgba(201,162,39,.12); }
+.pick-left{ flex:0 0 auto; min-width:34px; font-size:22px; line-height:1; }
+.pick-right{ flex:1; min-width:0; }
+.pick-right small{ display:block; margin-top:2px; font-size:11px; font-weight:600; color:#8B939D; }
+.lang-search{ position:relative; margin:6px 0 12px; }
+.lang-search i{ position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#8B939D; }
+.lang-search input{ padding-left:40px; }
+#lang-list,#cur-list{ max-height:60vh; overflow-y:auto; }
+.log-card{ display:flex; align-items:center; gap:12px; padding:14px; margin-bottom:12px; border-radius:14px;
+  border:1px solid rgba(198,205,214,.4); background:rgba(255,255,255,.04); }
+.log-main{ flex:1; min-width:0; }
+.log-device{ font-size:14px; font-weight:800; color:#ffffff; }
+.log-meta{ margin-top:3px; font-size:12px; font-weight:600; color:#8B939D; word-break:break-all; }
+.log-del{ flex:0 0 auto; width:40px; height:40px; border-radius:10px; border:1px solid rgba(197,32,47,.6);
+  background:transparent; color:#ff6b78; font-size:16px; cursor:pointer; }
+.hist-row{ display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.12); }
+.hist-ico{ flex:0 0 auto; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(198,205,214,.45); color:#C9A227; }
+.hist-title{ font-size:14px; font-weight:800; color:#ffffff; }
+.hist-date{ margin-top:2px; font-size:12px; font-weight:600; color:#8B939D; }
+#google_translate_element{ display:none; }
+.goog-te-banner-frame,.goog-te-balloon-frame,#goog-gt-tt,.goog-tooltip{ display:none !important; }
+.goog-text-highlight{ background:none !important; box-shadow:none !important; }
+body{ top:0 !important; }
+html.light{ filter:invert(1) hue-rotate(180deg); }
+html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
 </style>
+<script>if (localStorage.getItem('appTheme') === 'light') document.documentElement.classList.add('light');</script>
 </head>
 <body>
     <div id="welcome-overlay" style="display:none; position:fixed; inset:0; z-index:99999; background-color:#070B12; background-image:none; align-items:center; justify-content:center; flex-direction:column">
@@ -1225,6 +1251,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
     </div>
 
 <div id="toast-container"></div>
+<div id="google_translate_element"></div>
 
 <div id="withdraw-anim-overlay">
     <div class="spinner-ring" id="withdraw-spinner"></div>
@@ -1510,7 +1537,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><svg viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="21" cy="24" r="8" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="21" cy="24" r="2.4" fill="#fff"/><path d="M21 16v3M21 29v3M13 24h3M26 24h3" stroke="#fff" stroke-width="2"/><rect x="35" y="18" width="4" height="12" rx="1.5" fill="#fff"/></svg></div>
                     <div class="db-body">
                         <div class="db-label">TOTAL INVEST</div>
-                        <div class="db-value" id="dash-invest">0.00</div>
+                        <div class="db-value money" id="dash-invest">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-blue" >
@@ -1518,7 +1545,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><svg viewBox="0 0 48 48"><path d="M18 12C14 7 19 4.5 24 5.7 29 4.5 34 7 30 12c0 2.6 10 8.4 10 19 0 8.6-9.6 10.3-16 10.3S8 39.6 8 31c0-10.6 10-16.4 10-19Z" fill="#fff"/></svg></div>
                     <div class="db-body">
                         <div class="db-label">TOTAL BONUS</div>
-                        <div class="db-value" id="db-bonus">0.00</div>
+                        <div class="db-value money" id="db-bonus">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-blue" onclick="appLogic.openWithdrawalModal()">
@@ -1526,7 +1553,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><span class="db-sym">₮</span></div>
                     <div class="db-body">
                         <div class="db-label">CASH ACCOUNT</div>
-                        <div class="db-value" id="dash-balance">0.00</div>
+                        <div class="db-value money" id="dash-balance">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-gold" onclick="appLogic.navTo('affiliate')">
@@ -1542,7 +1569,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><svg viewBox="0 0 48 48"><rect x="7" y="30" width="34" height="7" rx="1.6" fill="#fff"/><rect x="12" y="22" width="24" height="7" rx="1.6" fill="#fff"/><rect x="17" y="14" width="14" height="7" rx="1.6" fill="#fff"/></svg></div>
                     <div class="db-body">
                         <div class="db-label">PAID OUT</div>
-                        <div class="db-value" id="db-paidout">0.00</div>
+                        <div class="db-value money" id="db-paidout">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-green" >
@@ -1550,7 +1577,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#fff" stroke-width="2.6"/><ellipse cx="24" cy="24" rx="8" ry="18" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M6 24h36M9.5 14h29M9.5 34h29" stroke="#fff" stroke-width="2.2"/></svg></div>
                     <div class="db-body">
                         <div class="db-label">TOTAL NETWORK EARNINGS</div>
-                        <div class="db-value" id="dash-total">0.00</div>
+                        <div class="db-value money" id="dash-total">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-green" >
@@ -1558,7 +1585,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><span class="db-sym">₮</span></div>
                     <div class="db-body">
                         <div class="db-label">PROFIT TODAY</div>
-                        <div class="db-value" id="dash-today">0.00</div>
+                        <div class="db-value money" id="dash-today">0.00</div>
                     </div>
                 </div>
                 <div class="db-tile db-green" >
@@ -1566,7 +1593,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                     <div class="db-ico"><span class="db-sym">₮</span></div>
                     <div class="db-body">
                         <div class="db-label">PROFIT YESTERDAY</div>
-                        <div class="db-value" id="dash-yesterday">0.00</div>
+                        <div class="db-value money" id="dash-yesterday">0.00</div>
                     </div>
                 </div>
         </div>
@@ -1617,7 +1644,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
 
         <div style="background-color:#070B12; background-image:none; border: 1.5px solid rgba(201,162,39,0.28); border-radius: 16px; padding: 16px; margin-bottom: 16px; text-align: center">
             <span style="font-size: 13px; font-weight: bold; color: #ffffff; display:block; margin-bottom:6px"><span>Withdrawal Fee</span>: <span id="withdraw-fee-text">10%</span></span>
-            <span style="font-size: 14px; font-weight: 900; color: #ffffff"><span>You will receive</span>: <span id="withdraw-net-amount"></span></span>
+            <span style="font-size: 14px; font-weight: 900; color: #ffffff"><span>You will receive</span>: <span class="money" id="withdraw-net-amount"></span></span>
         </div>
 
         <div style="background-color:#070B12; background-image:none; border: 1.5px solid rgba(201,162,39,0.28); border-radius: 16px; padding: 18px; margin-bottom: 16px">
@@ -1646,6 +1673,47 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                 <p style="font-size:12px; text-align:center">Loading...</p>
             </div>
         </div>
+    </div>
+
+    <div id="lang-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-x" onclick="appLogic.closeModal('lang-modal')">&times;</span>
+            <div class="input-wrapper lang-search">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="text" id="lang-search" placeholder="Search" autocomplete="off" oninput="appLogic.renderLanguages()">
+            </div>
+            <div id="lang-list"></div>
+        </div>
+    </div>
+
+    <div id="cur-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-x" onclick="appLogic.closeModal('cur-modal')">&times;</span>
+            <div id="cur-list"></div>
+        </div>
+    </div>
+
+    <div id="logins-view" class="view">
+        <div class="sec-bar">
+            <button class="sec-bar-btn" onclick="appLogic.navTo('settings')" aria-label="Back">
+                <span class="sec-back">&lsaquo;</span>
+            </button>
+        </div>
+        <h3 class="st-title"><i class="fas fa-mobile-screen"></i> <span>Logins</span></h3>
+        <div id="logins-list"></div>
+        <button type="button" class="btn" id="logins-clear" onclick="appLogic.clearLogins()">
+            <i class="fas fa-trash"></i> <span>Delete all</span>
+        </button>
+    </div>
+
+    <div id="acchistory-view" class="view">
+        <div class="sec-bar">
+            <button class="sec-bar-btn" onclick="appLogic.navTo('settings')" aria-label="Back">
+                <span class="sec-back">&lsaquo;</span>
+            </button>
+        </div>
+        <h3 class="st-title"><i class="fas fa-clock-rotate-left"></i> <span>Account history</span></h3>
+        <div id="acchistory-list"></div>
     </div>
 
     <div id="packages-view" class="view">
@@ -1787,7 +1855,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                 </div>
                 <div class="tm-stat">
                     <div class="tm-stat-label">Total Earned</div>
-                    <div class="tm-stat-value"><span id="affiliate-earned">0.00</span></div>
+                    <div class="tm-stat-value"><span class="money" id="affiliate-earned">0.00</span></div>
                 </div>
             </div>
         </div>
@@ -1804,8 +1872,8 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
         <div class="pf-head">
             <div class="pf-avatar"></div>
             <div class="pf-ident">
-                <div class="pf-email" id="profile-email"></div>
-                <div class="pf-id" id="profile-id"></div>
+                <div class="pf-email" id="profile-email" translate="no"></div>
+                <div class="pf-id" id="profile-id" translate="no"></div>
             </div>
         </div>
 
@@ -1838,21 +1906,23 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
 
     <div id="settings-view" class="view">
 
-        <div class="card" style="text-align: center">
-            <button class="btn" onclick="appLogic.navTo('support')">
-                <i class="fas fa-headset"></i> <span>Support</span><span id="settings-unread-badge" class="menu-badge"></span>
+        <div class="st-grid">
+            <button type="button" class="st-btn" onclick="appLogic.openLanguagePicker()">
+                <span class="st-left" id="st-lang-flag" translate="no"></span>
+                <span class="st-right" id="st-lang-name" translate="no"></span>
             </button>
-        </div>
-
-        <div class="card" style="text-align: center">
-            <h4 style="font-size: 15px; margin-bottom: 15px; font-weight: 900; color:#ffffff">Select a currency</h4>
-            <div class="currency-row" id="currency-row">
-                <button type="button" class="currency-btn" data-value="USDT" onclick="appLogic.selectCurrency('USDT','₮ USDT')">₮</button>
-                <button type="button" class="currency-btn" data-value="$" onclick="appLogic.selectCurrency('$','USD ($)')">$</button>
-                <button type="button" class="currency-btn" data-value="€" onclick="appLogic.selectCurrency('€','EUR (€)')">€</button>
-                <button type="button" class="currency-btn" data-value="£" onclick="appLogic.selectCurrency('£','GBP (£)')">£</button>
-            </div>
-            <input type="hidden" id="global-currency" value="USDT">
+            <button type="button" class="st-btn" onclick="appLogic.openCurrencyPicker()">
+                <span class="st-left" id="st-cur-code" translate="no"></span>
+                <span class="st-right" id="st-cur-name" translate="no"></span>
+            </button>
+            <button type="button" class="st-btn" id="st-theme" onclick="appLogic.toggleTheme()">
+                <i class="fas fa-moon"></i>
+                <span class="st-right" id="st-theme-text"></span>
+            </button>
+            <button type="button" class="st-btn" id="st-mask" onclick="appLogic.toggleMask()">
+                <i class="fas fa-eye"></i>
+                <span class="st-right" id="st-mask-text"></span>
+            </button>
         </div>
 
         <div class="card" style="text-align: center">
@@ -1921,9 +1991,18 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
             </button>
         </div>
 
-        <div class="card" style="text-align: center">
-            <button class="btn" onclick="appLogic.logout()">
+        <div class="st-stack">
+            <button type="button" class="btn" onclick="appLogic.openLogins()">
+                <i class="fas fa-mobile-screen"></i> <span>Logins</span>
+            </button>
+            <button type="button" class="btn" onclick="appLogic.openAccountHistory()">
+                <i class="fas fa-clock-rotate-left"></i> <span>Account history</span>
+            </button>
+            <button type="button" class="btn" onclick="appLogic.logout()">
                 <i class="fas fa-right-from-bracket"></i> <span>Log Out</span>
+            </button>
+            <button type="button" class="btn" onclick="appLogic.navTo('support')">
+                <i class="fas fa-headset"></i> <span>Support</span><span id="settings-unread-badge" class="menu-badge"></span>
             </button>
         </div>
     </div>
@@ -1935,13 +2014,37 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
 (function () {
   'use strict';
 
+  if (!window.supabase) {
+    window.addEventListener('DOMContentLoaded', function () {
+      document.body.textContent = 'Не успях да заредя библиотеката за базата данни. Провери интернет връзката и презареди страницата.';
+    });
+    return;
+  }
+
   var SUPABASE_URL = 'https://mdyssxuhtqmrsovmdqwr.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_HWtqEikwpf6AewaADW3ycA_3OcuwGWB';
 
   var SB = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
-    auth: { persistSession: false },
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+      lock: function (name, acquireTimeout, fn) { return fn(); }
+    },
     realtime: { params: { eventsPerSecond: 20 } }
   });
+
+  var rawRpc = SB.rpc.bind(SB);
+  SB.rpc = function (name, args) {
+    return Promise.race([
+      Promise.resolve(rawRpc(name, args)),
+      new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({ data: null, error: { message: 'Заявката към базата данни изтече.' } });
+        }, 15000);
+      })
+    ]);
+  };
 
   var SENTINEL = { __srvts: true };
 
@@ -2087,16 +2190,47 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
     } catch (e) {}
   }
 
+  var vers = null;
   var polling = false;
-  setInterval(function () {
-    if (polling || !listeners.length || document.hidden) return;
-    polling = true;
+  var lastFull = 0;
+
+  function listenedPaths() {
     var paths = {};
     listeners.forEach(function (l) { paths[l.path] = 1; });
-    Promise.all(Object.keys(paths).map(function (p) { return refresh(p, false); }))
-      .catch(function () {})
-      .then(function () { polling = false; });
-  }, 12000);
+    return Object.keys(paths);
+  }
+
+  function refreshAll() {
+    lastFull = Date.now();
+    return Promise.all(listenedPaths().map(function (p) { return refresh(p, false); }));
+  }
+
+  async function pollVersions() {
+    if (polling || !listeners.length || document.hidden) return;
+    polling = true;
+    try {
+      var r = await SB.rpc('rtdb_vers');
+      if (r.error || !r.data) {
+        if (Date.now() - lastFull > 12000) await refreshAll();
+        return;
+      }
+      var prev = vers;
+      vers = r.data;
+      if (!prev) { await refreshAll(); return; }
+      var changed = {};
+      var any = false;
+      for (var k in vers) if (vers[k] !== prev[k]) { changed[k] = 1; any = true; }
+      if (!any) return;
+      await Promise.all(listenedPaths().filter(function (p) {
+        return p === '' || changed[p.split('/')[0]];
+      }).map(function (p) { return refresh(p, false); }));
+    } finally {
+      polling = false;
+    }
+  }
+
+  setInterval(pollVersions, 3000);
+  setInterval(function () { if (!document.hidden) refreshAll(); }, 60000);
 
   function SbRef(path) {
     this.path = norm(path);
@@ -2163,7 +2297,9 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
   }, 30000);
 
   document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) SrvTime.tick().catch(function () {});
+    if (document.hidden) return;
+    SrvTime.tick().catch(function () {});
+    pollVersions();
   });
 })();
 </script>
@@ -2189,11 +2325,66 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
     const CONTRACT_MS = CONTRACT_DAYS * DAY_MS;
 
     const CURRENCIES = [
-        { code: 'USDT', key: 'USDT', symbol: '\u20AE', label: '\u20AE USDT', rate: 1 },
-        { code: 'EUR',  key: '\u20AC', symbol: '\u20AC', label: 'EUR (\u20AC)', rate: 0.92 },
-        { code: 'USD',  key: '$',    symbol: '$',    label: 'USD ($)',  rate: 1 },
-        { code: 'GBP',  key: '\u00A3', symbol: '\u00A3', label: 'GBP (\u00A3)', rate: 0.78 }
+        { code: 'USDT', key: 'USDT', symbol: '\u20AE', name: 'Tether', rate: 1 },
+        { code: 'USD',  key: '$',    symbol: '$',    name: 'US Dollar', rate: 1 },
+        { code: 'EUR',  key: '\u20AC', symbol: '\u20AC', name: 'Euro', rate: 0.92 },
+        { code: 'GBP',  key: '\u00A3', symbol: '\u00A3', name: 'British Pound', rate: 0.78 }
     ];
+
+    const LANGS = [
+        ['af', 'Afrikaans', 'Afrikaans', '🇿🇦'], ['sq', 'Shqip', 'Albanian', '🇦🇱'], ['am', 'አማርኛ', 'Amharic', '🇪🇹'],
+        ['ar', 'العربية', 'Arabic', '🇸🇦'], ['hy', 'Հայերեն', 'Armenian', '🇦🇲'], ['az', 'Azərbaycan', 'Azerbaijani', '🇦🇿'],
+        ['eu', 'Euskara', 'Basque', '🇪🇸'], ['be', 'Беларуская', 'Belarusian', '🇧🇾'], ['bn', 'বাংলা', 'Bengali', '🇧🇩'],
+        ['bs', 'Bosanski', 'Bosnian', '🇧🇦'], ['bg', 'Български', 'Bulgarian', '🇧🇬'], ['ca', 'Català', 'Catalan', '🇪🇸'],
+        ['ceb', 'Cebuano', 'Cebuano', '🇵🇭'], ['ny', 'Chichewa', 'Chichewa', '🇲🇼'], ['zh-CN', '中文 (简体)', 'Chinese (Simplified)', '🇨🇳'],
+        ['zh-TW', '中文 (繁體)', 'Chinese (Traditional)', '🇹🇼'], ['co', 'Corsu', 'Corsican', '🇫🇷'], ['hr', 'Hrvatski', 'Croatian', '🇭🇷'],
+        ['cs', 'Čeština', 'Czech', '🇨🇿'], ['da', 'Dansk', 'Danish', '🇩🇰'], ['nl', 'Nederlands', 'Dutch', '🇳🇱'],
+        ['en', 'English', 'English', '🇬🇧'], ['eo', 'Esperanto', 'Esperanto', '🇪🇺'], ['et', 'Eesti', 'Estonian', '🇪🇪'],
+        ['tl', 'Filipino', 'Filipino', '🇵🇭'], ['fi', 'Suomi', 'Finnish', '🇫🇮'], ['fr', 'Français', 'French', '🇫🇷'],
+        ['fy', 'Frysk', 'Frisian', '🇳🇱'], ['gl', 'Galego', 'Galician', '🇪🇸'], ['ka', 'ქართული', 'Georgian', '🇬🇪'],
+        ['de', 'Deutsch', 'German', '🇩🇪'], ['el', 'Ελληνικά', 'Greek', '🇬🇷'], ['gu', 'ગુજરાતી', 'Gujarati', '🇮🇳'],
+        ['ht', 'Kreyòl ayisyen', 'Haitian Creole', '🇭🇹'], ['ha', 'Hausa', 'Hausa', '🇳🇬'], ['haw', 'ʻŌlelo Hawaiʻi', 'Hawaiian', '🇺🇸'],
+        ['iw', 'עברית', 'Hebrew', '🇮🇱'], ['hi', 'हिन्दी', 'Hindi', '🇮🇳'], ['hmn', 'Hmoob', 'Hmong', '🇱🇦'],
+        ['hu', 'Magyar', 'Hungarian', '🇭🇺'], ['is', 'Íslenska', 'Icelandic', '🇮🇸'], ['ig', 'Igbo', 'Igbo', '🇳🇬'],
+        ['id', 'Bahasa Indonesia', 'Indonesian', '🇮🇩'], ['ga', 'Gaeilge', 'Irish', '🇮🇪'], ['it', 'Italiano', 'Italian', '🇮🇹'],
+        ['ja', '日本語', 'Japanese', '🇯🇵'], ['jw', 'Basa Jawa', 'Javanese', '🇮🇩'], ['kn', 'ಕನ್ನಡ', 'Kannada', '🇮🇳'],
+        ['kk', 'Қазақша', 'Kazakh', '🇰🇿'], ['km', 'ខ្មែរ', 'Khmer', '🇰🇭'], ['rw', 'Kinyarwanda', 'Kinyarwanda', '🇷🇼'],
+        ['ko', '한국어', 'Korean', '🇰🇷'], ['ku', 'Kurdî', 'Kurdish', '🇮🇶'], ['ky', 'Кыргызча', 'Kyrgyz', '🇰🇬'],
+        ['lo', 'ລາວ', 'Lao', '🇱🇦'], ['la', 'Latina', 'Latin', '🇻🇦'], ['lv', 'Latviešu', 'Latvian', '🇱🇻'],
+        ['lt', 'Lietuvių', 'Lithuanian', '🇱🇹'], ['lb', 'Lëtzebuergesch', 'Luxembourgish', '🇱🇺'], ['mk', 'Македонски', 'Macedonian', '🇲🇰'],
+        ['mg', 'Malagasy', 'Malagasy', '🇲🇬'], ['ms', 'Bahasa Melayu', 'Malay', '🇲🇾'], ['ml', 'മലയാളം', 'Malayalam', '🇮🇳'],
+        ['mt', 'Malti', 'Maltese', '🇲🇹'], ['mi', 'Māori', 'Maori', '🇳🇿'], ['mr', 'मराठी', 'Marathi', '🇮🇳'],
+        ['mn', 'Монгол', 'Mongolian', '🇲🇳'], ['my', 'မြန်မာ', 'Myanmar (Burmese)', '🇲🇲'], ['ne', 'नेपाली', 'Nepali', '🇳🇵'],
+        ['no', 'Norsk', 'Norwegian', '🇳🇴'], ['or', 'ଓଡ଼ିଆ', 'Odia', '🇮🇳'], ['ps', 'پښتو', 'Pashto', '🇦🇫'],
+        ['fa', 'فارسی', 'Persian', '🇮🇷'], ['pl', 'Polski', 'Polish', '🇵🇱'], ['pt', 'Português', 'Portuguese', '🇵🇹'],
+        ['pa', 'ਪੰਜਾਬੀ', 'Punjabi', '🇮🇳'], ['ro', 'Română', 'Romanian', '🇷🇴'], ['ru', 'Русский', 'Russian', '🇷🇺'],
+        ['sm', 'Gagana Samoa', 'Samoan', '🇼🇸'], ['gd', 'Gàidhlig', 'Scots Gaelic', '🇬🇧'], ['sr', 'Српски', 'Serbian', '🇷🇸'],
+        ['st', 'Sesotho', 'Sesotho', '🇱🇸'], ['sn', 'Shona', 'Shona', '🇿🇼'], ['sd', 'سنڌي', 'Sindhi', '🇵🇰'],
+        ['si', 'සිංහල', 'Sinhala', '🇱🇰'], ['sk', 'Slovenčina', 'Slovak', '🇸🇰'], ['sl', 'Slovenščina', 'Slovenian', '🇸🇮'],
+        ['so', 'Soomaali', 'Somali', '🇸🇴'], ['es', 'Español', 'Spanish', '🇪🇸'], ['su', 'Basa Sunda', 'Sundanese', '🇮🇩'],
+        ['sw', 'Kiswahili', 'Swahili', '🇰🇪'], ['sv', 'Svenska', 'Swedish', '🇸🇪'], ['tg', 'Тоҷикӣ', 'Tajik', '🇹🇯'],
+        ['ta', 'தமிழ்', 'Tamil', '🇮🇳'], ['tt', 'Татарча', 'Tatar', '🇷🇺'], ['te', 'తెలుగు', 'Telugu', '🇮🇳'],
+        ['th', 'ไทย', 'Thai', '🇹🇭'], ['tr', 'Türkçe', 'Turkish', '🇹🇷'], ['tk', 'Türkmen', 'Turkmen', '🇹🇲'],
+        ['uk', 'Українська', 'Ukrainian', '🇺🇦'], ['ur', 'اردو', 'Urdu', '🇵🇰'], ['ug', 'ئۇيغۇرچە', 'Uyghur', '🇨🇳'],
+        ['uz', 'Oʻzbek', 'Uzbek', '🇺🇿'], ['vi', 'Tiếng Việt', 'Vietnamese', '🇻🇳'], ['cy', 'Cymraeg', 'Welsh', '🇬🇧'],
+        ['xh', 'isiXhosa', 'Xhosa', '🇿🇦'], ['yi', 'ייִדיש', 'Yiddish', '🇮🇱'], ['yo', 'Yorùbá', 'Yoruba', '🇳🇬'],
+        ['zu', 'isiZulu', 'Zulu', '🇿🇦'], ['as', 'অসমীয়া', 'Assamese', '🇮🇳'], ['ay', 'Aymar aru', 'Aymara', '🇧🇴'],
+        ['bm', 'Bamanankan', 'Bambara', '🇲🇱'], ['bho', 'भोजपुरी', 'Bhojpuri', '🇮🇳'], ['dv', 'ދިވެހި', 'Dhivehi', '🇲🇻'],
+        ['doi', 'डोगरी', 'Dogri', '🇮🇳'], ['ee', 'Eʋegbe', 'Ewe', '🇬🇭'], ['gn', 'Avañe’ẽ', 'Guarani', '🇵🇾'],
+        ['ilo', 'Ilokano', 'Ilocano', '🇵🇭'], ['gom', 'कोंकणी', 'Konkani', '🇮🇳'], ['kri', 'Krio', 'Krio', '🇸🇱'],
+        ['ckb', 'کوردی (سۆرانی)', 'Kurdish (Sorani)', '🇮🇶'], ['ln', 'Lingála', 'Lingala', '🇨🇩'], ['lg', 'Luganda', 'Luganda', '🇺🇬'],
+        ['mai', 'मैथिली', 'Maithili', '🇮🇳'], ['mni-Mtei', 'ꯃꯩꯇꯩꯂꯣꯟ', 'Meiteilon (Manipuri)', '🇮🇳'], ['lus', 'Mizo ṭawng', 'Mizo', '🇮🇳'],
+        ['om', 'Afaan Oromoo', 'Oromo', '🇪🇹'], ['qu', 'Runasimi', 'Quechua', '🇵🇪'], ['sa', 'संस्कृतम्', 'Sanskrit', '🇮🇳'],
+        ['nso', 'Sepedi', 'Sepedi', '🇿🇦'], ['ti', 'ትግርኛ', 'Tigrinya', '🇪🇷'], ['ts', 'Xitsonga', 'Tsonga', '🇿🇦'], ['ak', 'Twi', 'Twi', '🇬🇭']
+    ].sort((x, y) => x[2].localeCompare(y[2]));
+
+    const ACCOUNT_EVENTS = {
+        created: ['fa-user-plus', 'Account created'],
+        login: ['fa-right-to-bracket', 'Logged in'],
+        password_changed: ['fa-key', 'Password changed'],
+        pin_set: ['fa-lock', 'Withdrawal PIN set'],
+        pin_changed: ['fa-rotate', 'Withdrawal PIN changed']
+    };
     const cRates = {}, cSyms = {};
     CURRENCIES.forEach(c => { cRates[c.key] = c.rate; cSyms[c.key] = c.symbol; });
 
@@ -2348,10 +2539,11 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
             Landing.init();
 
             if (!cRates[this.currentCurrency]) this.currentCurrency = 'USDT';
-            document.getElementById('global-currency').value = this.currentCurrency;
-            document.querySelectorAll('.currency-btn').forEach(b => {
-                b.classList.toggle('active', b.dataset.value === this.currentCurrency);
-            });
+            this.renderCurrencyButton();
+            this.renderLanguageButton();
+            this.renderThemeButton();
+            this.initMask();
+            this.initLanguage();
 
             this.listenToPromo();
             this.listenToInfinity();
@@ -2797,7 +2989,9 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
         },
 
         secureLogout() {
+            const kept = ['appTheme', 'appLang', 'appMask', 'appCurrency'].map(k => [k, localStorage.getItem(k)]);
             localStorage.clear();
+            kept.forEach(([k, v]) => { if (v !== null) localStorage.setItem(k, v); });
             location.reload();
         },
 
@@ -3110,7 +3304,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                             </div>
                             <div style="display:flex; justify-content: space-between; margin-top: 5px">
                                 <span style="font-size: 11px; font-weight: bold; color: rgba(255,255,255,0.8)">${this.esc(equip)}</span>
-                                <span style="font-size: 13px; font-weight: 900; color: #ffffff">+ ${this.fmt(myBonusTotal)}</span>
+                                <span class="money" style="font-size: 13px; font-weight: 900; color: #ffffff">+ ${this.fmt(myBonusTotal)}</span>
                             </div>
                         </div>
                         </div>
@@ -3301,6 +3495,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
             try {
                 await window.fupdate(window.fref(window.fdb, 'users/' + uid), { withdrawPin: pin });
                 this.showToast("Withdrawal PIN set successfully!", "success");
+                this.logAccountEvent(existingPin ? 'pin_changed' : 'pin_set');
                 document.querySelectorAll('#prof-setup-pin-grid .pin-box, #prof-old-pin-grid .pin-box').forEach(el => { el.value = ''; });
             } catch(e) { this.showToast("Error setting PIN", "error"); }
         },
@@ -3318,6 +3513,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                 await window.fupdate(window.fref(window.fdb, 'users/' + uid), { password: newPass });
                 localStorage.setItem('userPass', newPass);
                 this.showToast("Password updated successfully!", "success");
+                this.logAccountEvent('password_changed');
                 document.getElementById('prof-old-pass').value = '';
                 document.getElementById('prof-new-pass').value = '';
             } catch(e) { this.showToast("Error updating password", "error"); }
@@ -3648,7 +3844,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                                     <div style="font-size: 11px; color: var(--text-gray); margin-bottom: 2px; font-weight: bold">Date</div>
                                     <div style="font-size: 13px; font-weight: 900; margin-bottom: 12px">${formattedDate}</div>
                                     <div style="font-size: 11px; color: var(--text-gray); margin-bottom: 2px; font-weight: bold">Amount Received</div>
-                                    <div style="font-size: 18px; font-weight: 900; color: var(--success-green)">+${this.fmt(w.amount)}</div>
+                                    <div class="money" style="font-size: 18px; font-weight: 900; color: var(--success-green)">+${this.fmt(w.amount)}</div>
                                 </div>
                             `;
                         } else {
@@ -3670,10 +3866,10 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                                     <div style="font-size: 11px; font-weight: 700; margin-bottom: 12px; word-break: break-all; color: #555">${this.esc(w.cryptoAddress || 'N/A')}</div>
 
                                     <div style="font-size: 11px; color: var(--text-gray); margin-bottom: 2px; font-weight: bold">Withdrawn Amount</div>
-                                    <div style="font-size: 18px; font-weight: 900; color: var(--text-black); margin-bottom: 12px">${this.fmt(grossUSDT)}</div>
+                                    <div class="money" style="font-size: 18px; font-weight: 900; color: var(--text-black); margin-bottom: 12px">${this.fmt(grossUSDT)}</div>
 
                                     <div style="font-size: 11px; color: var(--text-gray); margin-bottom: 2px; font-weight: bold">Withdrawal Fee</div>
-                                    <div style="font-size: 14px; font-weight: 900; color: var(--error-red)">${this.fmt(feeUSDT)}</div>
+                                    <div class="money" style="font-size: 14px; font-weight: 900; color: var(--error-red)">${this.fmt(feeUSDT)}</div>
                                 </div>
                             `;
                         }
@@ -3983,6 +4179,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                 localStorage.setItem('myCode', reservedId);
                 localStorage.setItem('userPass', password);
 
+                this.recordLogin(reservedId);
                 this.showToast('Account created.', 'success');
                 this.playWelcomeAnimation();
                 this.loadLocalData();
@@ -4027,6 +4224,7 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
                 localStorage.setItem('myCode', data.myCode || realKey);
                 localStorage.setItem('userPass', password);
 
+                this.recordLogin(realKey);
                 this.showToast('Login successful.', 'success');
                 this.playWelcomeAnimation();
                 this.loadLocalData();
@@ -4397,13 +4595,259 @@ button,[onclick]{ touch-action: manipulation; -webkit-tap-highlight-color: trans
             }
         },
 
-        selectCurrency(value, label) {
-            const hidden = document.getElementById('global-currency');
-            if (hidden) hidden.value = value;
-            document.querySelectorAll('.currency-btn').forEach(b => {
-                b.classList.toggle('active', b.dataset.value === value);
+        openModal(id) {
+            const overlay = document.getElementById(id);
+            overlay.style.display = 'flex';
+            setTimeout(() => overlay.classList.add('show'), 10);
+        },
+
+        renderCurrencyButton() {
+            const c = CURRENCIES.find(x => x.key === this.currentCurrency);
+            document.getElementById('st-cur-code').innerText = c.symbol + ' ' + c.code;
+            document.getElementById('st-cur-name').innerText = c.name;
+        },
+
+        openCurrencyPicker() {
+            document.getElementById('cur-list').innerHTML = CURRENCIES.map(c => `
+                <button type="button" class="pick-row${c.key === this.currentCurrency ? ' active' : ''}" onclick="appLogic.selectCurrency('${c.key}')">
+                    <span class="pick-left" translate="no">${c.symbol} ${c.code}</span>
+                    <span class="pick-right" translate="no">${c.name}</span>
+                </button>`).join('');
+            this.openModal('cur-modal');
+        },
+
+        selectCurrency(key) {
+            this.changeCurrency(key);
+            this.renderCurrencyButton();
+            this.closeModal('cur-modal');
+        },
+
+        renderLanguageButton() {
+            const code = localStorage.getItem('appLang') || 'en';
+            const l = LANGS.find(x => x[0] === code) || LANGS.find(x => x[0] === 'en');
+            document.getElementById('st-lang-flag').innerText = l[3];
+            document.getElementById('st-lang-name').innerText = l[1];
+        },
+
+        openLanguagePicker() {
+            document.getElementById('lang-search').value = '';
+            this.renderLanguages();
+            this.openModal('lang-modal');
+        },
+
+        renderLanguages() {
+            const q = document.getElementById('lang-search').value.trim().toLowerCase();
+            const current = localStorage.getItem('appLang') || 'en';
+            document.getElementById('lang-list').innerHTML = LANGS
+                .filter(l => !q || l[1].toLowerCase().includes(q) || l[2].toLowerCase().includes(q) || l[0].toLowerCase() === q)
+                .map(l => `
+                    <button type="button" class="pick-row${l[0] === current ? ' active' : ''}" onclick="appLogic.setLanguage('${l[0]}')">
+                        <span class="pick-left" translate="no">${l[3]}</span>
+                        <span class="pick-right" translate="no">${l[1]}<small>${l[2]}</small></span>
+                    </button>`).join('');
+        },
+
+        loadTranslator() {
+            if (this._translatorLoading) return;
+            this._translatorLoading = true;
+            window.googleTranslateElementInit = () => {
+                new window.google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+            };
+            const s = document.createElement('script');
+            s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.head.appendChild(s);
+        },
+
+        setTranslationCookie(code) {
+            const clear = code === 'en';
+            const value = clear ? '' : '/en/' + code;
+            const expires = clear ? ';expires=Thu, 01 Jan 1970 00:00:00 GMT' : '';
+            document.cookie = 'googtrans=' + value + ';path=/' + expires;
+            document.cookie = 'googtrans=' + value + ';path=/;domain=' + location.hostname + expires;
+        },
+
+        applyLanguage(code) {
+            let tries = 0;
+            const apply = () => {
+                const combo = document.querySelector('select.goog-te-combo');
+                if (combo) {
+                    if (combo.value !== code) {
+                        combo.value = code;
+                        combo.dispatchEvent(new Event('change'));
+                    }
+                    return true;
+                }
+                return false;
+            };
+            if (apply()) return;
+            const timer = setInterval(() => {
+                if (apply() || ++tries > 40) clearInterval(timer);
+            }, 400);
+        },
+
+        initLanguage() {
+            const code = localStorage.getItem('appLang') || 'en';
+            if (code === 'en') return;
+            this.setTranslationCookie(code);
+            this.loadTranslator();
+            this.applyLanguage(code);
+        },
+
+        setLanguage(code) {
+            const previous = localStorage.getItem('appLang') || 'en';
+            localStorage.setItem('appLang', code);
+            this.setTranslationCookie(code);
+            this.renderLanguageButton();
+            this.closeModal('lang-modal');
+            if (code === 'en') {
+                if (previous !== 'en') location.reload();
+                return;
+            }
+            this.loadTranslator();
+            this.applyLanguage(code);
+        },
+
+        renderThemeButton() {
+            const light = document.documentElement.classList.contains('light');
+            document.querySelector('#st-theme i').className = light ? 'fas fa-sun' : 'fas fa-moon';
+            document.getElementById('st-theme-text').innerText = light ? 'Light' : 'Dark';
+        },
+
+        toggleTheme() {
+            const light = !document.documentElement.classList.contains('light');
+            document.documentElement.classList.toggle('light', light);
+            localStorage.setItem('appTheme', light ? 'light' : 'dark');
+            this.renderThemeButton();
+        },
+
+        maskText(el) {
+            const text = el.textContent;
+            if (!/\d/.test(text)) return;
+            el.dataset.real = text;
+            el.textContent = text.replace(/\d/g, '*');
+        },
+
+        maskAll(root) {
+            if (root.classList.contains('money')) this.maskText(root);
+            root.querySelectorAll('.money').forEach(el => this.maskText(el));
+        },
+
+        renderMaskButton() {
+            const on = document.body.classList.contains('mask-money');
+            document.querySelector('#st-mask i').className = on ? 'fas fa-eye-slash' : 'fas fa-eye';
+            document.getElementById('st-mask-text').innerText = on ? 'Money hidden' : 'Money visible';
+        },
+
+        setMask(on) {
+            localStorage.setItem('appMask', on ? '1' : '0');
+            document.body.classList.toggle('mask-money', on);
+            if (on) this.maskAll(document.body);
+            else document.querySelectorAll('.money[data-real]').forEach(el => {
+                el.textContent = el.dataset.real;
+                delete el.dataset.real;
             });
-            this.changeCurrency(value);
+            this.renderMaskButton();
+        },
+
+        toggleMask() {
+            this.setMask(!document.body.classList.contains('mask-money'));
+        },
+
+        initMask() {
+            new MutationObserver(records => {
+                if (!document.body.classList.contains('mask-money')) return;
+                records.forEach(r => {
+                    const host = r.type === 'characterData' ? r.target.parentElement : r.target;
+                    const money = host && host.closest ? host.closest('.money') : null;
+                    if (money) this.maskText(money);
+                    r.addedNodes.forEach(n => { if (n.nodeType === 1) this.maskAll(n); });
+                });
+            }).observe(document.body, { childList: true, subtree: true, characterData: true });
+            this.setMask(localStorage.getItem('appMask') === '1');
+        },
+
+        async recordLogin(uid) {
+            const p = this.parseUA();
+            try {
+                await window.SUPABASE.rpc('record_login', { p_uid: uid, p_info: { device: p.device, os: p.os, browser: p.browser } });
+            } catch (e) {}
+        },
+
+        logAccountEvent(type) {
+            const uid = localStorage.getItem('uid');
+            if (!uid) return;
+            window.SUPABASE.rpc('log_account_event', { p_uid: uid, p_type: type }).then(() => {}, () => {});
+        },
+
+        async openLogins() {
+            this.navTo('logins');
+            document.getElementById('logins-list').innerHTML = '<p class="st-empty">Loading...</p>';
+            document.getElementById('logins-clear').style.display = 'none';
+            let data = {};
+            try {
+                const snap = await window.fget(window.fref(window.fdb, 'login_history/' + localStorage.getItem('uid')));
+                if (snap.exists()) data = snap.val();
+            } catch (e) {}
+            this._logins = Object.keys(data).sort().reverse().map(id => ({ id, ...data[id] }));
+            this.renderLogins();
+        },
+
+        renderLogins() {
+            const list = document.getElementById('logins-list');
+            document.getElementById('logins-clear').style.display = this._logins.length ? 'block' : 'none';
+            if (!this._logins.length) {
+                list.innerHTML = '<p class="st-empty">No logins recorded yet.</p>';
+                return;
+            }
+            list.innerHTML = this._logins.map(it => `
+                <div class="log-card">
+                    <div class="log-main">
+                        <div class="log-device" translate="no">${this.esc([it.device, it.os, it.browser].filter(Boolean).join(' · '))}</div>
+                        <div class="log-meta" translate="no">IP: ${this.esc(it.ip || '—')}</div>
+                        <div class="log-meta" translate="no">${new Date(Number(it.time)).toLocaleString()}</div>
+                    </div>
+                    <button type="button" class="log-del" aria-label="Delete" onclick="appLogic.deleteLogin('${this.esc(it.id)}')"><i class="fas fa-trash"></i></button>
+                </div>`).join('');
+        },
+
+        async deleteLogin(id) {
+            const uid = localStorage.getItem('uid');
+            try {
+                await window.fset(window.fref(window.fdb, 'login_history/' + uid + '/' + id), null);
+                this._logins = this._logins.filter(x => x.id !== id);
+                this.renderLogins();
+            } catch (e) { this.showToast('Could not delete the login.', 'error'); }
+        },
+
+        async clearLogins() {
+            if (!confirm('Delete all recorded logins?')) return;
+            try {
+                await window.fset(window.fref(window.fdb, 'login_history/' + localStorage.getItem('uid')), null);
+                this._logins = [];
+                this.renderLogins();
+            } catch (e) { this.showToast('Could not delete the logins.', 'error'); }
+        },
+
+        async openAccountHistory() {
+            this.navTo('acchistory');
+            const list = document.getElementById('acchistory-list');
+            list.innerHTML = '<p class="st-empty">Loading...</p>';
+            let events = [];
+            try {
+                const snap = await window.fget(window.fref(window.fdb, 'account_events/' + localStorage.getItem('uid')));
+                if (snap.exists()) events = Object.values(snap.val());
+            } catch (e) {}
+            const created = this.currentUserData && Number(this.currentUserData.createdAt);
+            if (created) events.push({ type: 'created', time: created });
+            events = events.filter(ev => ACCOUNT_EVENTS[ev.type]).sort((x, y) => Number(y.time) - Number(x.time));
+            list.innerHTML = events.length ? events.map(ev => `
+                <div class="hist-row">
+                    <div class="hist-ico"><i class="fas ${ACCOUNT_EVENTS[ev.type][0]}"></i></div>
+                    <div>
+                        <div class="hist-title">${ACCOUNT_EVENTS[ev.type][1]}</div>
+                        <div class="hist-date" translate="no">${new Date(Number(ev.time)).toLocaleString()}</div>
+                    </div>
+                </div>`).join('') : '<p class="st-empty">No history yet.</p>';
         }
     };
 
