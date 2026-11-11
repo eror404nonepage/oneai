@@ -859,20 +859,23 @@ body.modal-open{ overflow:hidden !important; touch-action:none; }
 
 #affiliate-view.view{ background-color:#000000 !important; background-image:none !important; }
 
-.tl-block{ margin:0 -18px 18px; padding:6px 0 14px;
-  border-top:1px solid rgba(198,205,214,.45); border-bottom:1px solid rgba(198,205,214,.45); }
+.tl-block{ margin:0 0 18px; padding:6px 16px 8px; border-radius:18px;
+  background:linear-gradient(180deg,#10151D,#070A0F); border:1px solid rgba(198,205,214,.3);
+  box-shadow:0 10px 26px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.07); }
 .tl-heading{ font-family:'Oswald','Montserrat',sans-serif; font-size:16px; font-weight:600;
   letter-spacing:1.4px; text-transform:uppercase; text-align:center;
   color:#E8EDF3; margin:12px 0 14px; }
-.tl-row{ display:flex; align-items:center; gap:14px; padding:11px 18px;
+.tl-row{ display:flex; align-items:center; gap:14px; padding:12px 0;
   border-top:1px solid rgba(198,205,214,.18); }
 .tl-row:first-of-type{ border-top:none; }
+.tl-logo{ flex:0 0 auto; width:46px; height:46px; border-radius:50%;
+  border:1px solid rgba(198,205,214,.55); background:rgba(255,255,255,.04); }
 .tl-text{ flex:1; min-width:0; }
 .tl-name{ font-family:'Oswald','Montserrat',sans-serif; font-size:17px; font-weight:600;
   letter-spacing:.5px; color:#F4F7FA; line-height:1.15; }
 .tl-sub{ font-size:11.5px; font-weight:600; color:#8D96A1; margin-top:3px; }
 .tl-pct{ font-family:'Oswald','Montserrat',sans-serif; font-size:22px; font-weight:600;
-  color:#E3B96E; flex-shrink:0; }
+  color:#ffffff; flex-shrink:0; }
 
 .tm-card{ background:#071528; background-image:none;
   border:1px solid rgba(214,176,66,.55); border-radius:16px;
@@ -1125,44 +1128,61 @@ position:relative; z-index:1; min-width:0;
 .pf-email{ font-size:14px; font-weight:800; color:#ffffff; word-break:break-all; }
 .pf-id{ margin-top:4px; font-size:12px; font-weight:700; color:#8B939D; }
 #bottom-nav{
-  display:none; position:fixed; left:50%; bottom:0; transform:translateX(-50%);
-  width:100%; max-width:480px; z-index:40; padding:0 6px env(safe-area-inset-bottom);
-  background:#000000; border-top:1px solid rgba(198,205,214,.25);
+  display:none; position:fixed; left:50%; bottom:calc(12px + env(safe-area-inset-bottom)); transform:translateX(-50%);
+  width:calc(100% - 28px); max-width:452px; z-index:40; padding:0 6px;
+  background:linear-gradient(180deg,#0C1017,#000000); border:1px solid rgba(198,205,214,.4);
+  border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,.7), 0 0 18px rgba(198,205,214,.1);
 }
 #app-container:has(.view.active:not(#auth-view)) #bottom-nav{ display:flex; }
 #bottom-nav button{
-  position:relative; flex:1; height:62px; display:flex; align-items:center; justify-content:center;
-  background:transparent; border:none; cursor:pointer; color:#8B939D; font-size:22px;
+  position:relative; flex:1; height:60px; display:flex; align-items:center; justify-content:center;
+  background:transparent; border:none; cursor:pointer; color:#E8EDF3; font-size:22px;
 }
+#bottom-nav button i{ transition:transform .25s cubic-bezier(.34,1.56,.64,1); }
 #bottom-nav button:active{ opacity:.6; }
-#bottom-nav .menu-dot{ top:14px; right:calc(50% - 20px); }
-#app-container:has(#profile-view.active,#withdrawal-view.active,#history-view.active) #nav-profile,
-#app-container:has(#packages-view.active) #nav-packages,
-#app-container:has(#dashboard-view.active) #nav-dashboard,
-#app-container:has(#affiliate-view.active) #nav-affiliate,
-#app-container:has(#settings-view.active,#logins-view.active,#acchistory-view.active) #nav-settings{ color:#C9A227; }
+#bottom-nav .menu-dot{ top:12px; right:calc(50% - 20px); }
+#app-container:has(#profile-view.active,#withdrawal-view.active,#history-view.active) #nav-profile i,
+#app-container:has(#packages-view.active) #nav-packages i,
+#app-container:has(#dashboard-view.active) #nav-dashboard i,
+#app-container:has(#affiliate-view.active) #nav-affiliate i,
+#app-container:has(#settings-view.active,#logins-view.active,#acchistory-view.active) #nav-settings i{ transform:translateY(-6px) scale(1.15); }
 .st-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
 .st-btn{ display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:54px; padding:0 12px;
   border-radius:12px; border:1.5px solid rgba(198,205,214,.55); background:rgba(255,255,255,.04); color:#ffffff;
   font-family:inherit; font-size:13px; font-weight:800; cursor:pointer; text-align:left; }
 .st-btn:active{ opacity:.75; }
-.st-btn i{ flex:0 0 auto; font-size:18px; color:#C9A227; }
+.st-btn i{ flex:0 0 auto; font-size:18px; color:#ffffff; }
+.st-btn .st-chev{ font-size:12px; color:#C6CDD6; transition:transform .25s; }
+.st-btn.open .st-chev{ transform:rotate(180deg); }
 .st-left{ flex:0 0 auto; font-size:20px; line-height:1; }
 .st-right{ flex:1; min-width:0; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#st-mask .st-right{ text-align:left; white-space:normal; line-height:1.25; }
+.st-switch{ flex:0 0 auto; position:relative; width:38px; height:22px; border-radius:11px;
+  background:rgba(255,255,255,.14); border:1px solid rgba(198,205,214,.55); transition:background .25s; }
+.st-switch::after{ content:''; position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%;
+  background:#E8EDF3; transition:transform .25s, background .25s; }
+.st-btn.on .st-switch{ background:#C6CDD6; }
+.st-btn.on .st-switch::after{ transform:translateX(16px); background:#000000; }
+.st-drop{ display:none; grid-column:1 / -1; overflow:hidden; background:#000000;
+  border:1.5px solid rgba(198,205,214,.55); border-radius:14px; }
+.st-drop.open{ display:block; }
 .st-stack{ display:flex; flex-direction:column; gap:12px; }
 .st-title{ margin:4px 0 16px; font-size:18px; font-weight:900; text-align:center; }
 .st-empty{ text-align:center; font-size:12px; color:#8B939D; }
-.pick-row{ display:flex; align-items:center; gap:12px; width:100%; padding:12px 14px; margin-bottom:8px; border-radius:12px;
-  border:1px solid rgba(198,205,214,.4); background:rgba(255,255,255,.04); color:#ffffff;
+.pick-row{ display:flex; align-items:center; gap:12px; width:100%; padding:12px 14px; border:none;
+  border-bottom:1px solid rgba(198,205,214,.22); border-radius:0; background:transparent; color:#ffffff;
   font-family:inherit; font-size:14px; font-weight:800; cursor:pointer; text-align:left; }
-.pick-row.active{ border-color:#C9A227; background:rgba(201,162,39,.12); }
+.pick-row:last-child{ border-bottom:none; }
+.pick-row.active{ background:rgba(255,255,255,.08); }
 .pick-left{ flex:0 0 auto; min-width:34px; font-size:22px; line-height:1; }
 .pick-right{ flex:1; min-width:0; }
 .pick-right small{ display:block; margin-top:2px; font-size:11px; font-weight:600; color:#8B939D; }
-.lang-search{ position:relative; margin:6px 0 12px; }
+.lang-search{ position:relative; margin:12px 12px 8px; }
+#settings-view .lang-search{ border-color:rgba(198,205,214,.4) !important; }
+#settings-view .lang-search:focus-within{ border-color:#C6CDD6 !important; box-shadow:0 0 10px rgba(198,205,214,.35) !important; }
 .lang-search i{ position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#8B939D; }
 .lang-search input{ padding-left:40px; }
-#lang-list,#cur-list{ max-height:60vh; overflow-y:auto; }
+#lang-list,#cur-list{ max-height:44vh; overflow-y:auto; }
 .log-card{ display:flex; align-items:center; gap:12px; padding:14px; margin-bottom:12px; border-radius:14px;
   border:1px solid rgba(198,205,214,.4); background:rgba(255,255,255,.04); }
 .log-main{ flex:1; min-width:0; }
@@ -1176,7 +1196,7 @@ position:relative; z-index:1; min-width:0;
 .hist-title{ font-size:14px; font-weight:800; color:#ffffff; }
 .hist-date{ margin-top:2px; font-size:12px; font-weight:600; color:#8B939D; }
 #google_translate_element{ display:none; }
-.goog-te-banner-frame,.goog-te-balloon-frame,#goog-gt-tt,.goog-tooltip{ display:none !important; }
+.goog-te-banner-frame,.goog-te-balloon-frame,#goog-gt-tt,.goog-tooltip,iframe.skiptranslate,body>.skiptranslate{ display:none !important; }
 .goog-text-highlight{ background:none !important; box-shadow:none !important; }
 body{ top:0 !important; }
 html.light{ filter:invert(1) hue-rotate(180deg); }
@@ -1413,8 +1433,8 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
 
     <nav id="bottom-nav" aria-label="Main">
         <button id="nav-profile" onclick="appLogic.navTo('profile')" aria-label="Profile"><i class="fas fa-user"></i></button>
-        <button id="nav-packages" onclick="appLogic.navTo('packages')" aria-label="Level"><i class="fas fa-layer-group"></i></button>
-        <button id="nav-dashboard" onclick="appLogic.navTo('dashboard')" aria-label="Dashboard"><i class="fas fa-gauge-high"></i></button>
+        <button id="nav-packages" onclick="appLogic.navTo('packages')" aria-label="Level"><i class="fas fa-arrow-trend-up"></i></button>
+        <button id="nav-dashboard" onclick="appLogic.navTo('dashboard')" aria-label="Dashboard"><i class="fas fa-table-cells-large"></i></button>
         <button id="nav-affiliate" onclick="appLogic.navTo('affiliate')" aria-label="Network"><i class="fas fa-users"></i></button>
         <button id="nav-settings" onclick="appLogic.navTo('settings')" aria-label="Settings"><i class="fas fa-gear"></i><span id="nav-unread-dot" class="menu-dot"></span></button>
     </nav>
@@ -1614,24 +1634,6 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
         </div>
     </div>
 
-    <div id="lang-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal-x" onclick="appLogic.closeModal('lang-modal')">&times;</span>
-            <div class="input-wrapper lang-search">
-                <i class="fas fa-magnifying-glass"></i>
-                <input type="text" id="lang-search" placeholder="Search" autocomplete="off" oninput="appLogic.renderLanguages()">
-            </div>
-            <div id="lang-list"></div>
-        </div>
-    </div>
-
-    <div id="cur-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal-x" onclick="appLogic.closeModal('cur-modal')">&times;</span>
-            <div id="cur-list"></div>
-        </div>
-    </div>
-
     <div id="logins-view" class="view">
         <div class="sec-bar">
             <button class="sec-bar-btn" onclick="appLogic.navTo('settings')" aria-label="Back">
@@ -1749,22 +1751,25 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
             <h3 class="tl-heading">Partnership Levels</h3>
 
             <div class="tl-row">
+                <div class="tl-logo"></div>
                 <div class="tl-text">
-                    <div class="tl-name">Gold Sapphire</div>
-                    <div class="tl-sub">Under 5 active partners</div>
+                    <div class="tl-name">Level 1</div>
+                    <div class="tl-sub">1 - 4 active partners</div>
                 </div>
                 <div class="tl-pct">5%</div>
             </div>
             <div class="tl-row">
+                <div class="tl-logo"></div>
                 <div class="tl-text">
-                    <div class="tl-name">Platinum Amethyst</div>
+                    <div class="tl-name">Level 2</div>
                     <div class="tl-sub">5 - 49 active partners</div>
                 </div>
                 <div class="tl-pct">10%</div>
             </div>
             <div class="tl-row">
+                <div class="tl-logo"></div>
                 <div class="tl-text">
-                    <div class="tl-name">Imperial Diamond</div>
+                    <div class="tl-name">Level 3</div>
                     <div class="tl-sub">50+ active partners</div>
                 </div>
                 <div class="tl-pct">15%</div>
@@ -1846,21 +1851,34 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
     <div id="settings-view" class="view">
 
         <div class="st-grid">
-            <button type="button" class="st-btn" onclick="appLogic.openLanguagePicker()">
+            <button type="button" class="st-btn" id="st-lang-btn" onclick="appLogic.toggleDrop('lang')">
                 <span class="st-left" id="st-lang-flag" translate="no"></span>
                 <span class="st-right" id="st-lang-name" translate="no"></span>
+                <i class="fas fa-chevron-down st-chev"></i>
             </button>
-            <button type="button" class="st-btn" onclick="appLogic.openCurrencyPicker()">
+            <button type="button" class="st-btn" id="st-cur-btn" onclick="appLogic.toggleDrop('cur')">
                 <span class="st-left" id="st-cur-code" translate="no"></span>
                 <span class="st-right" id="st-cur-name" translate="no"></span>
+                <i class="fas fa-chevron-down st-chev"></i>
             </button>
+            <div class="st-drop" id="lang-drop">
+                <div class="input-wrapper lang-search">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <input type="text" id="lang-search" placeholder="Search" autocomplete="off" oninput="appLogic.renderLanguages()">
+                </div>
+                <div id="lang-list"></div>
+            </div>
+            <div class="st-drop" id="cur-drop">
+                <div id="cur-list"></div>
+            </div>
             <button type="button" class="st-btn" id="st-theme" onclick="appLogic.toggleTheme()">
                 <i class="fas fa-moon"></i>
                 <span class="st-right" id="st-theme-text"></span>
+                <span class="st-switch"></span>
             </button>
             <button type="button" class="st-btn" id="st-mask" onclick="appLogic.toggleMask()">
-                <i class="fas fa-eye"></i>
                 <span class="st-right" id="st-mask-text"></span>
+                <span class="st-switch"></span>
             </button>
         </div>
 
@@ -2268,7 +2286,7 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
         { code: 'USD',  key: '$',    symbol: '$',    name: 'US Dollar', rate: 1 },
         { code: 'EUR',  key: '\u20AC', symbol: '\u20AC', name: 'Euro', rate: 0.92 },
         { code: 'GBP',  key: '\u00A3', symbol: '\u00A3', name: 'British Pound', rate: 0.78 }
-    ];
+    ].sort((x, y) => x.code.localeCompare(y.code));
 
     const LANGS = [
         ['af', 'Afrikaans', 'Afrikaans', '🇿🇦'], ['sq', 'Shqip', 'Albanian', '🇦🇱'], ['am', 'አማርኛ', 'Amharic', '🇪🇹'],
@@ -2816,6 +2834,7 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
         navTo(tabName) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(`${tabName}-view`).classList.add('active');
+            this.closeDrops();
             this.logActivity(tabName);
             if(tabName === 'profile') this.renderCheckinView();
             if(tabName === 'support') { this.listenToMyChat(); this.clearSupportUnread(); }
@@ -3149,9 +3168,10 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
         },
 
         getLevelInfo(activeTeamCount) {
-            if (activeTeamCount >= 50) return { name: 'Imperial Diamond', percent: 15, level: 3, nextTarget: null };
-            if (activeTeamCount >= 5)  return { name: 'Platinum Amethyst', percent: 10, level: 2, nextTarget: 50 };
-            return { name: 'Gold Sapphire', percent: 5, level: 1, nextTarget: 5 };
+            if (activeTeamCount >= 50) return { name: 'Level 3', percent: 15, level: 3, nextTarget: null };
+            if (activeTeamCount >= 5)  return { name: 'Level 2', percent: 10, level: 2, nextTarget: 50 };
+            if (activeTeamCount >= 1)  return { name: 'Level 1', percent: 5, level: 1, nextTarget: 5 };
+            return { name: 'No level', percent: 0, level: 0, nextTarget: 1 };
         },
 
         maybeRollBackStats(force) {
@@ -4532,31 +4552,43 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
             }
         },
 
-        openModal(id) {
-            const overlay = document.getElementById(id);
-            overlay.style.display = 'flex';
-            setTimeout(() => overlay.classList.add('show'), 10);
-        },
-
         renderCurrencyButton() {
             const c = CURRENCIES.find(x => x.key === this.currentCurrency);
             document.getElementById('st-cur-code').innerText = c.symbol + ' ' + c.code;
             document.getElementById('st-cur-name').innerText = c.name;
         },
 
-        openCurrencyPicker() {
+        renderCurrencies() {
             document.getElementById('cur-list').innerHTML = CURRENCIES.map(c => `
                 <button type="button" class="pick-row${c.key === this.currentCurrency ? ' active' : ''}" onclick="appLogic.selectCurrency('${c.key}')">
                     <span class="pick-left" translate="no">${c.symbol} ${c.code}</span>
                     <span class="pick-right" translate="no">${c.name}</span>
                 </button>`).join('');
-            this.openModal('cur-modal');
         },
 
         selectCurrency(key) {
             this.changeCurrency(key);
             this.renderCurrencyButton();
-            this.closeModal('cur-modal');
+            this.closeDrops();
+        },
+
+        toggleDrop(kind) {
+            const drop = document.getElementById(kind + '-drop');
+            const open = !drop.classList.contains('open');
+            this.closeDrops();
+            if (!open) return;
+            if (kind === 'lang') {
+                document.getElementById('lang-search').value = '';
+                this.renderLanguages();
+            } else {
+                this.renderCurrencies();
+            }
+            drop.classList.add('open');
+            document.getElementById('st-' + kind + '-btn').classList.add('open');
+        },
+
+        closeDrops() {
+            document.querySelectorAll('.st-drop.open, .st-btn.open').forEach(el => el.classList.remove('open'));
         },
 
         renderLanguageButton() {
@@ -4564,12 +4596,6 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
             const l = LANGS.find(x => x[0] === code) || LANGS.find(x => x[0] === 'en');
             document.getElementById('st-lang-flag').innerText = l[3];
             document.getElementById('st-lang-name').innerText = l[1];
-        },
-
-        openLanguagePicker() {
-            document.getElementById('lang-search').value = '';
-            this.renderLanguages();
-            this.openModal('lang-modal');
         },
 
         renderLanguages() {
@@ -4635,7 +4661,7 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
             localStorage.setItem('appLang', code);
             this.setTranslationCookie(code);
             this.renderLanguageButton();
-            this.closeModal('lang-modal');
+            this.closeDrops();
             if (code === 'en') {
                 if (previous !== 'en') location.reload();
                 return;
@@ -4648,6 +4674,7 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
             const light = document.documentElement.classList.contains('light');
             document.querySelector('#st-theme i').className = light ? 'fas fa-sun' : 'fas fa-moon';
             document.getElementById('st-theme-text').innerText = light ? 'Light' : 'Dark';
+            document.getElementById('st-theme').classList.toggle('on', light);
         },
 
         toggleTheme() {
@@ -4671,8 +4698,8 @@ html.light img,html.light canvas{ filter:invert(1) hue-rotate(180deg); }
 
         renderMaskButton() {
             const on = document.body.classList.contains('mask-money');
-            document.querySelector('#st-mask i').className = on ? 'fas fa-eye-slash' : 'fas fa-eye';
             document.getElementById('st-mask-text').innerText = on ? 'Money hidden' : 'Money visible';
+            document.getElementById('st-mask').classList.toggle('on', on);
         },
 
         setMask(on) {
